@@ -6,6 +6,18 @@ I am Hailey who is new to GitHub. Let's connect!
 - 🧬 I have a keen research interest in **Bioinformatics, Mathematical Biology, and Computational Biology**
 - 🤖 I'm currently a **Computing Engineer** at [CityU Underwater Robotics Team](https://www.ee.cityu.edu.hk/~rovteam/). Our team will join the MATE ROV Competition in 2024!
 
+## :zap: 🔭 My Skills
+<img src="./icons/Python-Dark.svg" width="48">
+<img src="./icons/R-Dark.svg" width="48">
+<img src="./icons/Matlab-Dark.svg" width="48"> 
+<img src="./icons/OpenCV-Dark.svg" width="48"> 
+<img src="./icons/Docker.svg" width="48">
+<img src="./icons/Arduino.svg" width="48"> 
+<img src="./icons/RaspberryPi-Dark.svg" width="48"> 
+<img src="./icons/Linux-Dark.svg" width="48">
+<img src="./icons/LaTeX-Dark.svg" width="48"> 
+  
+
 ## :zap: 🔭 I’m working on
 - Conduct a bioinformatics research project with the grand challenge theme "Advance Health Informatics" for the CityU X Sino Grand Challenges Scholars Program
 - Deploy a YOLOv8 model using TensorRT for object detection and classification in the CityU Underwater Robotics Team
