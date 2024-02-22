@@ -1,6 +1,8 @@
 ## Hi there 👋
+I am Hailey. Let's connect!
 
-I'm using HTML, CSS, and JavaScript to make websites dance. 🕺🏽
+## About Me
+- I am a first-year Computing Mathematics student in the [Global Research Enrichment and Technopreneurship](https://www.cityu.edu.hk/csci/academic-programmes/undergraduate-programmes/global-research-enrichment-and-technopreneurship-great) (GT) program, at the [City University of Hong Kong](https://www.topuniversities.com/universities/city-university-hong-kong). 
 
 **I love working with**
 
