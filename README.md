@@ -7,12 +7,7 @@ I am Hailey who is new to GitHub. Let's connect!
 - 🤖 I'm currently a **Computing Engineer** at [CityU Underwater Robotics Team](https://www.ee.cityu.edu.hk/~rovteam/). Our team will join the MATE ROV Competition in 2024!
 
 ## :zap: 🔭 My Skills
-<p align="center">
-  <a href="https://skillicons.dev">
-    <img src="https://skillicons.dev/icons?i=Python-Dark,R-Dark,Matlab,OpenCV,docker,Arduino,RaspberryPi-Dark,Linux-Dark,LaTeX-Dark" />
-  </a>
-</p>
-  
+[![My Skills](https://skillicons.dev/icons?py,r,matlab,linux,latex,opencv,arduino,raspberrypi,docker)](https://skillicons.dev)
 
 ## :zap: 🔭 I’m working on
 - Conduct a bioinformatics research project with the grand challenge theme "Advance Health Informatics" for the CityU X Sino Grand Challenges Scholars Program
