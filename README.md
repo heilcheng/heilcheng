@@ -1,5 +1,5 @@
 ## :zap: Hi there 👋
-I am Hailey who is new to Github. Let's connect!
+I am Hailey who is new to GitHub. Let's connect!
 
 ## :zap: About Me
 - 📏 I am a first-year **Computing Mathematics** student in the [Global Research Enrichment and Technopreneurship](https://www.cityu.edu.hk/csci/academic-programmes/undergraduate-programmes/global-research-enrichment-and-technopreneurship-great) (GT) program, at the [City University of Hong Kong](https://www.topuniversities.com/universities/city-university-hong-kong) (CityUHK)
