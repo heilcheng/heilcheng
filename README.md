@@ -1,5 +1,5 @@
 ## :zap: Hi there 👋
-I am Hailey. Let's connect!
+I am Hailey who is new to Github. Let's connect!
 
 ## :zap: About Me
 - 📏 I am a first-year **Computing Mathematics** student in the [Global Research Enrichment and Technopreneurship](https://www.cityu.edu.hk/csci/academic-programmes/undergraduate-programmes/global-research-enrichment-and-technopreneurship-great) (GT) program, at the [City University of Hong Kong](https://www.topuniversities.com/universities/city-university-hong-kong) (CityUHK)
@@ -7,30 +7,19 @@ I am Hailey. Let's connect!
 - 🤖 I'm currently a **Computing Engineer** at [CityU Underwater Robotics Team](https://www.ee.cityu.edu.hk/~rovteam/). Our team will join the MATE ROV Competition in 2024. 
 
 ## :zap: 🔭 I’m working on
-
-- Projects for freelance clients.
-- Growing [Upbeat Code](https://www.upbeatcode.com) to 100k/month visitors.
+- Conduct a bioinformatics research project with the grand challenge theme "Advance Health Informatics" for the CityU X Sino Grand Challenges Scholars Program
+- Deploy a YOLOv8 model using TensorRT for object detection and classification in the CityU Underwater Robotics Team
 
 ## :zap: 🌱 I’m learning
-
-<div display="flex">
-  <img src="https://img.shields.io/badge/hyperledger-2F3134?style=for-the-badge&logo=hyperledger&logoColor=white" alt="Hyperledger"/>
-  <img src="https://img.shields.io/badge/Ethereum-3C3C3D?style=for-the-badge&logo=Ethereum&logoColor=white" alt="Ethereum"/>
-  <img src="https://img.shields.io/badge/adobe%20illustrator-%23FF9A00.svg?style=for-the-badge&logo=adobe%20illustrator&logoColor=white" alt="Adobe Illustrator"/>
-</div>
-
-- Integrating AI models to web applications
+- [100 Days of Code: The Complete Python Pro Bootcamp](https://www.udemy.com/course/100-days-of-code/) on Udemy
+- [Data Analysis for the Life Sciences Series](https://rafalab.dfci.harvard.edu/pages/harvardx.html) by Prof. Rafael Irizarr
 
 ## :zap: 📫 How to reach me
 
 <div display="flex">
-  <a href="https://www.linkedin.com/in/codewithbernard/">
+  <a href="https://www.linkedin.com/in/heilcheng/">
     <img src="https://img.shields.io/badge/linkedin-%230077B5.svg?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn"/>
   </a>
-  <a href="https://twitter.com/CodeWithBernard">
-    <img src="https://img.shields.io/badge/codewithbernard-%231DA1F2.svg?style=for-the-badge&logo=Twitter&logoColor=white" alt="Twitter"/>
-  </a>
-  <a href="https://medium.com/@bernardbad">
     <img src="https://img.shields.io/badge/Medium-12100E?style=for-the-badge&logo=medium&logoColor=white" alt="Medium"/>
   </a>
 </div>
