@@ -20,10 +20,8 @@ I am Hailey who is new to Github. Let's connect!
   <a href="https://www.linkedin.com/in/heilcheng/">
     <img src="https://img.shields.io/badge/linkedin-%230077B5.svg?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn"/>
   </a>
-    <img src="https://img.shields.io/badge/Medium-12100E?style=for-the-badge&logo=medium&logoColor=white" alt="Medium"/>
-  </a>
 </div>
 
-### ⚡ Fun fact
+## :zap: ⚡ Fun fact
 
-I'm definitely not a cat person.
+I wanted to get into law school actually
