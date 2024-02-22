@@ -2,7 +2,9 @@
 I am Hailey. Let's connect!
 
 ## About Me
-- I am a first-year Computing Mathematics student in the [Global Research Enrichment and Technopreneurship](https://www.cityu.edu.hk/csci/academic-programmes/undergraduate-programmes/global-research-enrichment-and-technopreneurship-great) (GT) program, at the [City University of Hong Kong](https://www.topuniversities.com/universities/city-university-hong-kong). 
+- I am a first-year Computing Mathematics student in the [Global Research Enrichment and Technopreneurship](https://www.cityu.edu.hk/csci/academic-programmes/undergraduate-programmes/global-research-enrichment-and-technopreneurship-great) (GT) program, at the [City University of Hong Kong](https://www.topuniversities.com/universities/city-university-hong-kong) (CityUHK).
+- I have a keen research interest in Bioinformatics, Mathematical Biology, and Computational Biology
+- I'm currently a computing engineer at [CityU Underwater Robotics Team](https://www.ee.cityu.edu.hk/~rovteam/). Our team will join the MATE ROV Competition in 2024. 
 
 **I love working with**
 
