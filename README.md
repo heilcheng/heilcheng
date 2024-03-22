@@ -15,4 +15,5 @@ I am Hailey from Hong Kong, who is new to GitHub. Let's connect!
 - Getting familiar with GitHub, starting from simple projects
 
 ## :zap: Fun fact 
-- Wanted to get into law school and be a criminal barrister in Hong Kong actually. Got LLB offers but turned them down. 
+- I love playing FIFA and Fall Guys, lol
+- Wanted to get into law school and be a criminal barrister. Got LLB offers but turned them down due to the current situation in Hong Kong
