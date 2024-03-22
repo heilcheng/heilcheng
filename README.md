@@ -29,4 +29,3 @@ I am Hailey from Hong Kong🇭🇰, who is new to GitHub. Let's connect!
 ## :zap: Fun fact 🤪
 
 - ⚖️ I wanted to get into law school actually
-- 🎈 I broke the Guinness World Record for “The largest balloon sculpture of a dragon” under CityU Balloon Art Club with balloon artist Wilson Pang Sze-tai
