@@ -5,7 +5,7 @@ I am Hailey from Hong Kong🇭🇰, who is new to GitHub. Let's connect!
 - 📏 I am a first-year **Computing Mathematics** student in the [Global Research Enrichment and Technopreneurship](https://www.cityu.edu.hk/csci/academic-programmes/undergraduate-programmes/global-research-enrichment-and-technopreneurship-great) (GT) program, at the [City University of Hong Kong](https://www.topuniversities.com/universities/city-university-hong-kong) (CityUHK)
 - 🧬 I have a keen research interest in **Bioinformatics, Mathematical Biology, and Computational Biology**
 - 🤖 I'm currently a **Computing Engineer** at [CityU Underwater Robotics Team](https://www.ee.cityu.edu.hk/~rovteam/). Our team will join the MATE ROV Competition in 2024!
--  📫 Feel free to contact me at coletteo@protonmail.com. Always up for conversation! 😄
+-  📫 Feel free to contact me at heilcheng@proton.me. Always up for conversation! 😄
   
 ## :zap: My Skills 🔧
 [![My Skills](https://skillicons.dev/icons?i=py,r,matlab,linux,latex,opencv,arduino,raspberrypi,docker)](https://skillicons.dev)
