@@ -3,9 +3,9 @@ I am Hailey from Hong Kong, who is new to GitHub. Let's connect!
 
 ## :zap: About Me 
 - 📏 I am a first-year **Computing Mathematics** student at the [City University of Hong Kong](https://www.topuniversities.com/universities/city-university-hong-kong) (CityUHK), in the [Global Research Enrichment and Technopreneurship](https://www.cityu.edu.hk/csci/academic-programmes/undergraduate-programmes/global-research-enrichment-and-technopreneurship-great) (GT) program.
-- 🧬 I have a keen research interest in **Bioinformatics, Mathematical Biology, and Computational Biology**
-- 🤖 I'm currently a **Computing Engineer** at [CityU Underwater Robotics Team](https://www.ee.cityu.edu.hk/~rovteam/). Our team will join the MATE ROV Competition in 2024!
--  📫 Feel free to contact me at heilcheng@proton.me. Always up for conversation!
+- 🧬 I have a keen research interest in **Bioinformatics, Mathematical Biology, and Computational Biology**.
+- 🤖 I'm currently a **Computing Engineer** at [CityU Underwater Robotics Team](https://www.ee.cityu.edu.hk/~rovteam/).
+-  📫 Feel free to contact me at heilcheng@proton.me or connect me at [Linkedin](https://www.linkedin.com/in/heilcheng/). Always up for conversation!
   
 ## :zap: My Skills 
 [![My Skills](https://skillicons.dev/icons?i=py,r,matlab,linux,latex,opencv,arduino,raspberrypi,docker)](https://skillicons.dev)
@@ -15,4 +15,4 @@ I am Hailey from Hong Kong, who is new to GitHub. Let's connect!
 - Getting familiar with GitHub, starting from simple projects
 
 ## :zap: Fun fact 
-- ⚖️ Wanted to get into law school actually
+- Wanted to get into law school and be a criminal barrister in Hong Kong actually. Got LLB offers but turned them down. 
