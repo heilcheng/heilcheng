@@ -11,7 +11,8 @@ I am Hailey from Hong Kong🇭🇰, who is new to GitHub. Let's connect!
 [![My Skills](https://skillicons.dev/icons?i=py,r,matlab,linux,latex,opencv,arduino,raspberrypi,docker)](https://skillicons.dev)
 
 ## :zap: I’m working on 🔍
-- Conduct a bioinformatics research project 
+- Conduct a bioinformatics research project
+- Getting familiar with GitHub, starting from simple projects
 
 ## :zap: Fun fact 🤪
 
