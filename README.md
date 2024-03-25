@@ -14,9 +14,9 @@ I am Hailey. Let's connect
 - Conduct a bioinformatics research project
 - Getting familiar with GitHub, starting from simple projects
 
-[HarvardX Biomedical Data Science Open Online Training](https://rafalab.dfci.harvard.edu/pages/harvardx.html)
-[100 Days of Code: The Complete Python Pro Bootcamp](https://www.udemy.com/course/100-days-of-code/?couponCode=LETSLEARNNOWPP)
-[The Odin Project](https://www.theodinproject.com/)
+- [HarvardX Biomedical Data Science Open Online Training](https://rafalab.dfci.harvard.edu/pages/harvardx.html)
+- [100 Days of Code: The Complete Python Pro Bootcamp](https://www.udemy.com/course/100-days-of-code/?couponCode=LETSLEARNNOWPP)
+- [The Odin Project](https://www.theodinproject.com/)
 
 
 ## :zap: Fun fact 
