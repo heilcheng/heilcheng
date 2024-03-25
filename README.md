@@ -1,5 +1,5 @@
 ## :zap: Hi there 👋
-I am Hailey. Let's connect!
+I am Hailey. Let's connect
 
 ## :zap: About Me 
 - 📏 First-year **Computing Mathematics** student at the [City University of Hong Kong](https://www.topuniversities.com/universities/city-university-hong-kong) (CityUHK), in the [Global Research Enrichment and Technopreneurship](https://www.cityu.edu.hk/csci/academic-programmes/undergraduate-programmes/global-research-enrichment-and-technopreneurship-great) (GT) program.
@@ -7,12 +7,17 @@ I am Hailey. Let's connect!
 - 🤖 **Computing Engineer** at [CityU Underwater Robotics Team](https://www.ee.cityu.edu.hk/~rovteam/).
 -  📫 Feel free to contact me at heilcheng@proton.me or connect me at [Linkedin](https://www.linkedin.com/in/heilcheng/). 
   
-## :zap: My Skills 
+## :zap: Skills 
 [![My Skills](https://skillicons.dev/icons?i=py,r,matlab,linux,latex,opencv,arduino,raspberrypi,docker)](https://skillicons.dev)
 
 ## :zap: I’m working on 
 - Conduct a bioinformatics research project
 - Getting familiar with GitHub, starting from simple projects
+
+[HarvardX Biomedical Data Science Open Online Training](https://rafalab.dfci.harvard.edu/pages/harvardx.html)
+[100 Days of Code: The Complete Python Pro Bootcamp](https://www.udemy.com/course/100-days-of-code/?couponCode=LETSLEARNNOWPP)
+[The Odin Project](https://www.theodinproject.com/)
+
 
 ## :zap: Fun fact 
 - I love playing Fall Guys and FM; My toxic trait is choosing Manchester United as the team and selling all the players eventually
