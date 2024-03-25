@@ -1,5 +1,5 @@
 ## :zap: Hi there 👋
-I am Hailey. Let's connect
+I am Hailey. Let's connect!
 
 ## :zap: About Me 
 - 📏 First-year **Computing Mathematics** student at the [City University of Hong Kong](https://www.topuniversities.com/universities/city-university-hong-kong) (CityUHK), in the [Global Research Enrichment and Technopreneurship](https://www.cityu.edu.hk/csci/academic-programmes/undergraduate-programmes/global-research-enrichment-and-technopreneurship-great) (GT) program.
@@ -12,7 +12,7 @@ I am Hailey. Let's connect
 
 ## :zap: I’m working on 
 - Conduct a bioinformatics research project
-- Getting familiar with GitHub, starting from simple projects
+- Getting familiar with GitHub, starting from simple projects. Prob start after the end of semester 
 
 - [HarvardX Biomedical Data Science Open Online Training](https://rafalab.dfci.harvard.edu/pages/harvardx.html)
 - [100 Days of Code: The Complete Python Pro Bootcamp](https://www.udemy.com/course/100-days-of-code/?couponCode=LETSLEARNNOWPP)
