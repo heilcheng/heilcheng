@@ -12,7 +12,7 @@ I am Hailey. Let's connect!
 
 ## :zap: I’m working on 
 - Conduct a bioinformatics research project
-- Getting familiar with GitHub, starting from simple projects. Prob start after the end of semester 
+- Getting familiar with GitHub, starting from simple projects. Prob start after the end of the semester 
 
 - [HarvardX Biomedical Data Science Open Online Training](https://rafalab.dfci.harvard.edu/pages/harvardx.html)
 - [100 Days of Code: The Complete Python Pro Bootcamp](https://www.udemy.com/course/100-days-of-code/?couponCode=LETSLEARNNOWPP)
