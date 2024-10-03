@@ -7,4 +7,4 @@
 - Research areas in Mathematical & Computational Biology:
   - ODE/PDE Modelling
   - Neural networks
-- Still a long road to becoming a criminal barrister.
+- Very demure
