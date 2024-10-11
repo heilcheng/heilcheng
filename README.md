@@ -7,4 +7,5 @@
 - Research areas in Mathematical & Computational Biology:
   - ODE/PDE Modelling
   - Neural networks
+  - Speech processing
 - Very demure
