@@ -9,3 +9,5 @@
   - Neural networks
   - Speech processing
 - Very demure
+
+omg my contribution graph looks like a 🎶
