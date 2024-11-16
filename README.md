@@ -4,10 +4,5 @@
   -  R & MATLAB
   -  JavaScript & React
   -  LaTeX
-- Research areas in Mathematical & Computational Biology:
-  - ODE/PDE Modelling
-  - Neural networks
-  - Speech processing
-- Very demure
-
-omg my contribution graph looks like a 🎶
+- Research areas in Mathematical & Computational Biology
+- Coglix.ai 
