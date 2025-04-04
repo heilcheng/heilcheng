@@ -6,7 +6,7 @@
 
 <div align="center">
   
-Research areas in Mathematical Biology
+Research areas in Mathematical Biology 
 
 </div>
 
