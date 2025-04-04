@@ -9,4 +9,5 @@
 Research areas in Mathematical Biology 
 
 </div>
+
 ![snake gif](https://github.com/heilcheng/heilcheng/blob/output/github-snake-dark.svg)
