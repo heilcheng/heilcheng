@@ -6,9 +6,12 @@
 
 <div align="center">
   
-Research interests in Mathematical and computational biology,
+  Research interests in mathematical and computational biology,
 
-focusing on inflammatory disease modeling with ODE/PDE, and bioinformatics/cheminformatics tools.
+  with a focus on inflammatory disease modeling using ODE/PDE & deep learning,
+  
+  and the development of bioinformatics and cheminformatics tools.
+  
 </div>
 
 ![snake gif](https://github.com/heilcheng/heilcheng/blob/output/github-snake-dark.svg)
