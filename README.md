@@ -6,8 +6,9 @@
 
 <div align="center">
   
-Research areas in Mathematical Biology 
+Research interests in Mathematical and computational biology,
 
+focusing on inflammatory disease modeling with ODE/PDE, and bioinformatics/cheminformatics tools.
 </div>
 
 ![snake gif](https://github.com/heilcheng/heilcheng/blob/output/github-snake-dark.svg)
