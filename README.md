@@ -1,3 +1,4 @@
+
 ![Image](https://github.com/user-attachments/assets/b7d8bb7f-a6f6-4f2b-aed1-79729bfe75fd)
 
 Youcouldwatchmepulluponyourbody
@@ -11,7 +12,3 @@ Idontknowwhatyouwerewaitingfor
 YouknowthatIvebeenwaitingforyou
 
 I only threw this party for you
-
-<p>&nbsp;<img align="center" src="https://github-readme-stats.vercel.app/api?username=heilcheng&show_icons=true&locale=en&\&rank_icon=github&include_all_commits=true" alt="heilcheng" /></p>
-
-![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=heilcheng)
