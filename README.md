@@ -1,6 +1,6 @@
 # Hailey Cheng (@heilcheng)
 
-This profile showcases selected projects at the intersection of AI, drug discovery, and open-source tooling.
+This profile showcases selected projects at the intersection of LLMs, drug discovery, full-stack development, and open-source tooling/tutorials.
 
 [gemma-benchmark](https://github.com/heilcheng/gemma-benchmark):  
 An evaluation suite for Google's Gemma models across academic LLM benchmarks, with quantization support and efficiency profiling.
