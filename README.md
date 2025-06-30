@@ -1,14 +1,21 @@
+# Hailey Cheng (@heilcheng)
 
-![Image](https://github.com/user-attachments/assets/b7d8bb7f-a6f6-4f2b-aed1-79729bfe75fd)
+This profile showcases selected projects at the intersection of AI, drug discovery, and open-source tooling.
 
-Youcouldwatchmepulluponyourbody
+[gemma-benchmark](https://github.com/heilcheng/gemma-benchmark):  
+A full-stack evaluation suite for Google's Gemma models across academic LLM benchmarks, with quantization support and efficiency profiling.
 
-Likeitssummertakemyclothesoff
+[2025-GSoC-Proposal-Selected](https://github.com/heilcheng/2025-GSoC-Proposal-Selected):  
+Accepted Google Summer of Code proposal for DeepMind, focusing on benchmarking and ecosystem tools for Gemma models.
 
-Inthewatersplasharoundandgetyoublessedlikeholywater
+[GSoC_archive_2025](https://github.com/SammanSarkar/GSoC_archive_2025):  
+A collaborative archive of accepted GSoC 2025 proposals, providing transparency and guidance for future applicants.
 
-Idontknowwhatyouwerewaitingfor
+[deepchem-drug-formulation](https://github.com/heilcheng/deepchem-drug-formulation):  
+A tutorial using DeepChem for predicting key pharmaceutical properties and visualizing molecular behaviors for drug discovery.
 
-YouknowthatIvebeenwaitingforyou
+[Truth-or-Dare-Canto](https://github.com/heilcheng/Truth-or-Dare-Canto):  
+A Truth or Dare question generator web app in Cantonese, built with React.
 
-I only threw this party for you
+[perspective-plus](https://github.com/heilcheng/perspective-plus):  
+A Firefox extension that verifies the accuracy of medical content in YouTube videos. It provides a summary of the video content and an assessment of its medical accuracy.
