@@ -3,7 +3,7 @@
 This profile showcases selected projects at the intersection of AI, drug discovery, and open-source tooling.
 
 [gemma-benchmark](https://github.com/heilcheng/gemma-benchmark):  
-A full-stack evaluation suite for Google's Gemma models across academic LLM benchmarks, with quantization support and efficiency profiling.
+An evaluation suite for Google's Gemma models across academic LLM benchmarks, with quantization support and efficiency profiling.
 
 [2025-GSoC-Proposal-Selected](https://github.com/heilcheng/2025-GSoC-Proposal-Selected):  
 Accepted Google Summer of Code proposal for DeepMind, focusing on benchmarking and ecosystem tools for Gemma models.
