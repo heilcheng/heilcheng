@@ -4,6 +4,9 @@ This profile showcases selected projects at the intersection of LLMs, drug disco
 
 ### Selected Projects
 
+[MEQ-Bench](https://github.com/heilcheng/MEQ-Bench)
+> The first benchmark designed to evaluate an LLM's ability to generate **audience-adaptive medical explanations** for diverse stakeholders, including physicians, nurses, and patients.
+
 [Gemma Benchmark Suite](https://github.com/heilcheng/gemma-benchmark)
 > An evaluation suite for Google's Gemma models across academic LLM benchmarks, with **quantization support** and efficiency profiling.
 
