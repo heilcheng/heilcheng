@@ -2,29 +2,27 @@
 
 This profile showcases selected projects at the intersection of LLMs, drug discovery, full-stack development, and open-source tooling/tutorials.
 
-[gemma-benchmark](https://github.com/heilcheng/gemma-benchmark):  
-An evaluation suite for Google's Gemma models across academic LLM benchmarks, with quantization support and efficiency profiling.
+### Selected Projects
 
-[deepchem-drug-formulation](https://github.com/heilcheng/deepchem-drug-formulation):  
-A tutorial using DeepChem for predicting key pharmaceutical properties and visualizing molecular behaviors for drug discovery.
+[Gemma Benchmark Suite](https://github.com/heilcheng/gemma-benchmark)
+> An evaluation suite for Google's Gemma models across academic LLM benchmarks, with **quantization support** and efficiency profiling.
 
-[Truth-or-Dare-Canto](https://github.com/heilcheng/Truth-or-Dare-Canto):  
-A Truth or Dare question generator web app in Cantonese, built with React.
+[DeepChem Drug Formulation Tutorial](https://github.com/heilcheng/deepchem-drug-formulation)
+> A tutorial using **DeepChem** for predicting key pharmaceutical properties and visualizing molecular behaviors for drug discovery.
 
-[perspective-plus](https://github.com/heilcheng/perspective-plus):  
-A Firefox extension that verifies the accuracy of medical content in YouTube videos. It provides a summary of the video content and an assessment of its medical accuracy.
+[Perspective+ Firefox Extension](https://github.com/heilcheng/perspective-plus)
+> A Firefox extension that verifies the accuracy of medical content in YouTube videos, providing an AI-driven summary and assessment.
 
----
+[Truth or Dare (Cantonese)](https://github.com/heilcheng/Truth-or-Dare-Canto)
+> A Truth or Dare question generator web app built in Cantonese, using **React**.
 
 ### Community & Open Source Contributions
 
-[2025-GSoC-Proposal-Selected](https://github.com/heilcheng/2025-GSoC-Proposal-Selected):  
-Accepted Google Summer of Code proposal for Google DeepMind, focusing on benchmarking and ecosystem tools for Gemma models.
+[Accepted Proposal for Google DeepMind, GSoC 2025](https://github.com/heilcheng/2025-GSoC-Proposal-Selected)
+> A proposal focused on benchmarking and creating ecosystem tools for Gemma models.
 
-[GSoC_archive_2025](https://github.com/SammanSarkar/GSoC_archive_2025):  
-A collaborative archive of accepted Google Summer of Code 2025 proposals, providing transparency and guidance for future applicants.
-
----
+[GSoC Proposal Archive 2025](https://github.com/SammanSarkar/GSoC_archive_2025)
+> A **collaborative archive** of accepted GSoC 2025 proposals, built to provide transparency and guidance for future applicants.
 
 <!-- STATS:START -->
  GitHub Activity Summary (Updated Daily)
