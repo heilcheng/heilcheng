@@ -37,8 +37,8 @@ This profile showcases selected projects at the intersection of LLMs, drug disco
 
 - Public repositories: 11
 - Total stars: 561
-- Total forks: 42
+- Total forks: 43
 - Contributors across repos: 2
-- Last updated: 2025-07-17
+- Last updated: 2025-07-18
 
 <!-- STATS:END -->
