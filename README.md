@@ -36,9 +36,9 @@ This profile showcases selected projects at the intersection of LLMs, drug disco
  GitHub Activity Summary (Updated Daily)
 
 - Public repositories: 11
-- Total stars: 566
+- Total stars: 567
 - Total forks: 44
 - Contributors across repos: 2
-- Last updated: 2025-07-27
+- Last updated: 2025-07-28
 
 <!-- STATS:END -->
