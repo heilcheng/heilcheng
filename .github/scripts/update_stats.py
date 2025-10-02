@@ -1,10 +1,16 @@
 import os
-from github import Github
+from github import Github, Auth
 from datetime import datetime
 
 # GitHub token for authentication
-token = os.environ["GH_TOKEN"]
-g = Github(token)
+token = os.environ.get("GH_TOKEN")
+if not token:
+    print("Error: GH_TOKEN environment variable is not set")
+    exit(1)
+
+# Use the new auth parameter instead of deprecated login_or_token
+auth = Auth.Token(token)
+g = Github(auth=auth)
 
 user = g.get_user("heilcheng")
 
