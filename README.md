@@ -10,7 +10,7 @@ I'm currently applying to transfer to Columbia for Fall '26, and I hope to reloc
 
 <div align="center">
   <a href="https://heilcheng.github.io/heilcheng/graph.html">
-    <img src="assets/knowledge-graph.svg" alt="Knowledge Graph" width="100%">
+    <img src="assets/knowledge-graph.gif" alt="Knowledge Graph" width="100%">
   </a>
   <br>
   <sub>✨ <a href="https://heilcheng.github.io/heilcheng/graph.html">Explore the interactive graph</a></sub>

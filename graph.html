@@ -116,15 +116,6 @@
             gap: 4px;
         }
 
-        /* Topic labels */
-        .topic-label {
-            font-size: 11px;
-            font-weight: 500;
-            fill: #9ca3af;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
         /* Node styles */
         .node-circle {
             cursor: pointer;
@@ -163,32 +154,32 @@
     <svg id="graph"></svg>
 
     <script>
-        // Repository data organized by topics
+        // Repository data with REAL star counts from GitHub API
         const repos = [
             // AI/LLMs cluster
             {
                 id: "DeepMind",
                 name: "DeepMind",
-                description: "Google Summer of Code project with DeepMind",
-                stars: 245,
+                description: "Record for work at Google DeepMind",
+                stars: 472,
                 url: "https://github.com/heilcheng/DeepMind",
                 topic: "ai",
-                cluster: { x: 0.35, y: 0.35 }
+                cluster: { x: 0.3, y: 0.35 }
             },
             {
                 id: "openevals",
                 name: "openevals",
-                description: "Open-source evaluation benchmarks for LLMs",
-                stars: 156,
+                description: "Benchmarking suite for open-weight language models",
+                stars: 125,
                 url: "https://github.com/heilcheng/openevals",
                 topic: "ai",
-                cluster: { x: 0.45, y: 0.45 }
+                cluster: { x: 0.45, y: 0.4 }
             },
             {
                 id: "medexplain-evals",
                 name: "medexplain-evals",
-                description: "Medical explanation evaluation framework",
-                stars: 89,
+                description: "A benchmark for audience-adaptive medical explanation quality in LLMs",
+                stars: 5,
                 url: "https://github.com/heilcheng/medexplain-evals",
                 topic: "biomedicine",
                 cluster: { x: 0.55, y: 0.55 }
@@ -197,8 +188,8 @@
             {
                 id: "deepchem-drug-formulation",
                 name: "deepchem-drug",
-                description: "Deep learning for drug formulation prediction",
-                stars: 198,
+                description: "A computational tutorial for predicting drug formulation properties using DeepChem",
+                stars: 4,
                 url: "https://github.com/heilcheng/deepchem-drug-formulation",
                 topic: "biomedicine",
                 cluster: { x: 0.65, y: 0.65 }
@@ -207,8 +198,8 @@
             {
                 id: "truthordare",
                 name: "truthordare",
-                description: "Interactive truth or dare game",
-                stars: 42,
+                description: "廣東話真心話生成器 / Truth or Dare questions generator in Cantonese",
+                stars: 8,
                 url: "https://github.com/heilcheng/truthordare",
                 topic: "webdev",
                 cluster: { x: 0.25, y: 0.6 }
@@ -216,8 +207,8 @@
             {
                 id: "perspective",
                 name: "perspective",
-                description: "Perspective analysis and visualization tools",
-                stars: 67,
+                description: "Firefox extension that verifies the accuracy of medical content in YouTube videos",
+                stars: 4,
                 url: "https://github.com/heilcheng/perspective",
                 topic: "webdev",
                 cluster: { x: 0.55, y: 0.25 }
@@ -225,8 +216,8 @@
             {
                 id: "heilcheng.github.io",
                 name: "portfolio",
-                description: "Personal portfolio and blog",
-                stars: 12,
+                description: "Personal Website with Obsidian-like knowledge graph",
+                stars: 18,
                 url: "https://github.com/heilcheng/heilcheng.github.io",
                 topic: "webdev",
                 cluster: { x: 0.7, y: 0.4 }
@@ -309,12 +300,11 @@
                 .on("drag", dragged)
                 .on("end", dragended));
 
-        // Node circles - all purple with varying opacity/size based on stars
+        // Node circles - size based on stars (log scale for better visualization)
         node.append("circle")
             .attr("class", "node-circle")
-            .attr("r", d => Math.sqrt(d.stars) * 0.8 + 10)
+            .attr("r", d => Math.log(d.stars + 1) * 5 + 8)
             .attr("fill", d => {
-                // Varying purple shades based on topic
                 const colors = {
                     ai: "#8b5cf6",
                     biomedicine: "#a78bfa", 
@@ -332,7 +322,7 @@
         // Node labels
         node.append("text")
             .attr("class", "node-label")
-            .attr("dy", d => Math.sqrt(d.stars) * 0.8 + 22)
+            .attr("dy", d => Math.log(d.stars + 1) * 5 + 20)
             .attr("text-anchor", "middle")
             .text(d => d.name);
 
