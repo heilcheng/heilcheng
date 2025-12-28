@@ -10,6 +10,6 @@ I'm currently applying to transfer to Columbia for Fall '26, and I hope to reloc
 
 ---
 
-<!-- RANK -->#-- in Hong Kong<!-- /RANK --> · <!-- WEATHER -->--°C, --% humidity<!-- /WEATHER -->
+<!-- RANK -->#unranked in Hong Kong<!-- /RANK --> · <!-- WEATHER -->17°C, 75% humidity<!-- /WEATHER -->
 
 *Updates hourly via GitHub Actions* ⏱️
