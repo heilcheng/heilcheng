@@ -10,10 +10,10 @@ I'm currently applying to transfer to Columbia for Fall '26, and I hope to reloc
 
 ---
 
-<!-- STATS -->⭐ -- stars · 🔀 -- PRs · 💻 -- contributions<!-- /STATS -->
+<!-- STATS -->⭐ 658 stars · 🔀 51 PRs · 💻 40 contributions<!-- /STATS -->
 
-<!-- RANK -->[#-- in Hong Kong](https://committers.top/hong_kong.html)<!-- /RANK --> · <!-- WEATHER -->🌡️ --°C · 💧 --%<!-- /WEATHER -->
+<!-- RANK -->[#36 in Hong Kong](https://committers.top/hong_kong.html)<!-- /RANK --> · <!-- WEATHER -->☁️ 17°C · 💧 75%<!-- /WEATHER -->
 
-<!-- DOG -->🐕 Loading dog fact...<!-- /DOG -->
+<!-- DOG -->🐕 Dogs dream just like humans<!-- /DOG -->
 
 *Updates hourly via GitHub Actions* ⏱️
