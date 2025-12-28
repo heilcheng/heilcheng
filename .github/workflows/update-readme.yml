@@ -1,0 +1,47 @@
+name: Update README
+
+on:
+  schedule:
+    - cron: '0 * * * *'  # Runs every hour
+  workflow_dispatch:  # Manual trigger
+
+jobs:
+  update-readme:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Update README
+        run: |
+          # Fetch GitHub HK Ranking
+          USERNAME="heilcheng"
+          RANK=$(curl -s "https://user-badge.committers.top/hong_kong/${USERNAME}.svg" | grep -oP '(?<=>)\d+(?=</text>)' | head -1 || echo "unranked")
+          if [ -z "$RANK" ]; then
+            RANK="unranked"
+          fi
+
+          # Fetch Hong Kong Weather (HK Observatory API - no key needed!)
+          WEATHER_DATA=$(curl -s "https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=rhrread&lang=en")
+          TEMP=$(echo "$WEATHER_DATA" | jq -r '.temperature.data[] | select(.place == "Hong Kong Observatory") | .value')
+          HUMIDITY=$(echo "$WEATHER_DATA" | jq -r '.humidity.data[0].value')
+          
+          if [ -z "$TEMP" ]; then
+            TEMP=$(echo "$WEATHER_DATA" | jq -r '.temperature.data[0].value')
+          fi
+
+          # Update README
+          sed -i "s/<!-- RANK -->.*<!-- \/RANK -->/<!-- RANK -->#${RANK} in Hong Kong<!-- \/RANK -->/" README.md
+          sed -i "s/<!-- WEATHER -->.*<!-- \/WEATHER -->/<!-- WEATHER -->${TEMP}°C, ${HUMIDITY}% humidity<!-- \/WEATHER -->/" README.md
+
+      - name: Commit changes
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add README.md
+          git diff --quiet && git diff --staged --quiet || git commit -m "📊 Update ranking & weather"
+          git push
+
