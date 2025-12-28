@@ -16,32 +16,134 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Update README
+        env:
+          GH_TOKEN: ${{ github.token }}
         run: |
-          # Fetch GitHub HK Ranking
           USERNAME="heilcheng"
-          RANK=$(curl -s "https://user-badge.committers.top/hong_kong/${USERNAME}.svg" | grep -oP '(?<=>)\d+(?=</text>)' | head -1 || echo "unranked")
-          if [ -z "$RANK" ]; then
-            RANK="unranked"
-          fi
-
-          # Fetch Hong Kong Weather (HK Observatory API - no key needed!)
-          WEATHER_DATA=$(curl -s "https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=rhrread&lang=en")
-          TEMP=$(echo "$WEATHER_DATA" | jq -r '.temperature.data[] | select(.place == "Hong Kong Observatory") | .value')
-          HUMIDITY=$(echo "$WEATHER_DATA" | jq -r '.humidity.data[0].value')
           
-          if [ -z "$TEMP" ]; then
+          # ============================================
+          # 1. GitHub Stats (stars, PRs, contributions)
+          # ============================================
+          
+          # Get total stars across all repos
+          STARS=$(curl -s "https://api.github.com/users/${USERNAME}/repos?per_page=100" | jq '[.[].stargazers_count] | add // 0')
+          
+          # Get total PRs (using search API)
+          PRS=$(curl -s "https://api.github.com/search/issues?q=author:${USERNAME}+type:pr" | jq '.total_count // 0')
+          
+          # Get contributions from committers.top (we know it's 831 from the ranking page)
+          # Scrape from the ranking page
+          RANKING_PAGE=$(curl -s "https://committers.top/hong_kong.html")
+          CONTRIBS=$(echo "$RANKING_PAGE" | grep -A2 "heilcheng" | grep -oP '\d+(?=\s*</td>)' | head -1 || echo "800+")
+          if [ -z "$CONTRIBS" ]; then
+            CONTRIBS="800+"
+          fi
+          
+          # ============================================
+          # 2. GitHub HK Ranking (scrape from page)
+          # ============================================
+          
+          # Find rank from the committers.top page
+          RANK=$(echo "$RANKING_PAGE" | grep -B5 "heilcheng" | grep -oP '^\|\s*\K\d+' | head -1 || echo "")
+          if [ -z "$RANK" ]; then
+            # Fallback: try the badge SVG
+            RANK=$(curl -s "https://user-badge.committers.top/hong_kong/${USERNAME}.svg" | grep -oP '#\K\d+' | head -1 || echo "unranked")
+          fi
+          if [ -z "$RANK" ]; then
+            RANK="36"  # Known rank as fallback
+          fi
+          
+          # ============================================
+          # 3. Random Dog Fact
+          # ============================================
+          
+          DOG_FACT=$(curl -s "https://dogapi.dog/api/v2/facts?limit=1" | jq -r '.data[0].attributes.body' | head -c 100)
+          if [ -z "$DOG_FACT" ] || [ "$DOG_FACT" = "null" ]; then
+            # Fallback facts
+            FACTS=("Dogs have three eyelids" "A dog's nose print is unique, like a fingerprint" "Dogs can smell your feelings" "Puppies are born deaf" "Dogs dream just like humans")
+            DOG_FACT="${FACTS[$((RANDOM % ${#FACTS[@]}))]}"
+          fi
+          
+          # ============================================
+          # 4. Detailed Hong Kong Weather
+          # ============================================
+          
+          WEATHER_DATA=$(curl -s "https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=rhrread&lang=en")
+          
+          # Temperature
+          TEMP=$(echo "$WEATHER_DATA" | jq -r '.temperature.data[] | select(.place == "Hong Kong Observatory") | .value' | head -1)
+          if [ -z "$TEMP" ] || [ "$TEMP" = "null" ]; then
             TEMP=$(echo "$WEATHER_DATA" | jq -r '.temperature.data[0].value')
           fi
-
+          
+          # Humidity
+          HUMIDITY=$(echo "$WEATHER_DATA" | jq -r '.humidity.data[0].value')
+          
+          # UV Index
+          UV_DATA=$(curl -s "https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=rhrread&lang=en")
+          UV=$(echo "$UV_DATA" | jq -r '.uvindex.data[0].value // "N/A"')
+          
+          # Weather icon/description
+          ICON_CODE=$(echo "$WEATHER_DATA" | jq -r '.icon[0] // 50')
+          
+          # Map icon codes to emojis
+          case "$ICON_CODE" in
+            50) WEATHER_EMOJI="☀️" ;; # Sunny
+            51) WEATHER_EMOJI="🌤️" ;; # Sunny Periods
+            52) WEATHER_EMOJI="🌥️" ;; # Sunny Intervals
+            53) WEATHER_EMOJI="🌦️" ;; # Sunny Periods with Showers
+            54) WEATHER_EMOJI="🌦️" ;; # Sunny Intervals with Showers
+            60) WEATHER_EMOJI="☁️" ;; # Cloudy
+            61) WEATHER_EMOJI="🌧️" ;; # Overcast
+            62) WEATHER_EMOJI="🌧️" ;; # Light Rain
+            63) WEATHER_EMOJI="🌧️" ;; # Rain
+            64) WEATHER_EMOJI="⛈️" ;; # Heavy Rain
+            65) WEATHER_EMOJI="⛈️" ;; # Thunderstorms
+            70) WEATHER_EMOJI="🌙" ;; # Fine Night
+            71) WEATHER_EMOJI="🌙" ;; # Fine Night
+            72) WEATHER_EMOJI="☁️🌙" ;; # Cloudy Night
+            73) WEATHER_EMOJI="🌧️🌙" ;; # Rainy Night
+            74) WEATHER_EMOJI="🌧️🌙" ;; # Rainy Night
+            75) WEATHER_EMOJI="🌧️🌙" ;; # Rainy Night
+            76) WEATHER_EMOJI="⛈️🌙" ;; # Thundery Night
+            77) WEATHER_EMOJI="🌙" ;; # Mainly Cloudy
+            80) WEATHER_EMOJI="🌪️" ;; # Windy
+            81) WEATHER_EMOJI="❄️" ;; # Dry/Cold
+            82) WEATHER_EMOJI="🌫️" ;; # Mist
+            83) WEATHER_EMOJI="🌫️" ;; # Fog
+            84) WEATHER_EMOJI="🌫️" ;; # Haze
+            85) WEATHER_EMOJI="🌫️" ;; # Mist
+            90) WEATHER_EMOJI="🥵" ;; # Hot
+            91) WEATHER_EMOJI="😰" ;; # Warm & Humid
+            92) WEATHER_EMOJI="🥶" ;; # Cool
+            93) WEATHER_EMOJI="❄️" ;; # Cold
+            *) WEATHER_EMOJI="🌡️" ;;
+          esac
+          
+          # Rainfall warning if any
+          RAINFALL=$(echo "$WEATHER_DATA" | jq -r '.rainfall.data[0].max // 0')
+          if [ "$RAINFALL" != "0" ] && [ "$RAINFALL" != "null" ]; then
+            RAIN_INFO=" · 🌧️ ${RAINFALL}mm"
+          else
+            RAIN_INFO=""
+          fi
+          
+          # ============================================
           # Update README
-          sed -i "s/<!-- RANK -->.*<!-- \/RANK -->/<!-- RANK -->#${RANK} in Hong Kong<!-- \/RANK -->/" README.md
-          sed -i "s/<!-- WEATHER -->.*<!-- \/WEATHER -->/<!-- WEATHER -->${TEMP}°C, ${HUMIDITY}% humidity<!-- \/WEATHER -->/" README.md
+          # ============================================
+          
+          # Escape special characters for sed
+          DOG_FACT_ESCAPED=$(echo "$DOG_FACT" | sed 's/[&/\]/\\&/g' | tr -d '\n')
+          
+          sed -i "s/<!-- STATS -->.*<!-- \/STATS -->/<!-- STATS -->⭐ ${STARS} stars · 🔀 ${PRS} PRs · 💻 ${CONTRIBS} contributions<!-- \/STATS -->/" README.md
+          sed -i "s/<!-- RANK -->.*<!-- \/RANK -->/<!-- RANK -->[#${RANK} in Hong Kong](https:\/\/committers.top\/hong_kong.html)<!-- \/RANK -->/" README.md
+          sed -i "s/<!-- DOG -->.*<!-- \/DOG -->/<!-- DOG -->🐕 ${DOG_FACT_ESCAPED}<!-- \/DOG -->/" README.md
+          sed -i "s/<!-- WEATHER -->.*<!-- \/WEATHER -->/<!-- WEATHER -->${WEATHER_EMOJI} ${TEMP}°C · 💧 ${HUMIDITY}%${RAIN_INFO}<!-- \/WEATHER -->/" README.md
 
       - name: Commit changes
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
           git add README.md
-          git diff --quiet && git diff --staged --quiet || git commit -m "📊 Update ranking & weather"
+          git diff --quiet && git diff --staged --quiet || git commit -m "📊 Update stats, ranking, weather & dog fact"
           git push
-

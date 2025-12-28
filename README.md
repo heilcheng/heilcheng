@@ -10,6 +10,10 @@ I'm currently applying to transfer to Columbia for Fall '26, and I hope to reloc
 
 ---
 
-<!-- RANK -->#-- in Hong Kong<!-- /RANK --> · <!-- WEATHER -->--°C, --% humidity<!-- /WEATHER -->
+<!-- STATS -->⭐ -- stars · 🔀 -- PRs · 💻 -- contributions<!-- /STATS -->
+
+<!-- RANK -->[#-- in Hong Kong](https://committers.top/hong_kong.html)<!-- /RANK --> · <!-- WEATHER -->🌡️ --°C · 💧 --%<!-- /WEATHER -->
+
+<!-- DOG -->🐕 Loading dog fact...<!-- /DOG -->
 
 *Updates hourly via GitHub Actions* ⏱️
