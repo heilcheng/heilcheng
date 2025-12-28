@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hailey's Knowledge Graph</title>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background: #0a0b0f;
+            color: #e0e0e0;
+            overflow: hidden;
+            min-height: 100vh;
+        }
+
+        #canvas-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+        }
+
+        #graph {
+            position: relative;
+            z-index: 1;
+            width: 100%;
+            height: 100vh;
+        }
+
+        /* Floating particles background */
+        .particle {
+            position: absolute;
+            border-radius: 50%;
+            pointer-events: none;
+            animation: float 20s infinite ease-in-out;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) translateX(0); opacity: 0.3; }
+            25% { transform: translateY(-30px) translateX(15px); opacity: 0.6; }
+            50% { transform: translateY(-15px) translateX(-10px); opacity: 0.4; }
+            75% { transform: translateY(-40px) translateX(20px); opacity: 0.5; }
+        }
+
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            padding: 24px 40px;
+            z-index: 100;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: linear-gradient(to bottom, rgba(10, 11, 15, 0.95) 0%, transparent 100%);
+        }
+
+        .logo {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 14px;
+            font-weight: 500;
+            color: #7c3aed;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .logo span {
+            color: #a78bfa;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+        }
+
+        .nav-links a {
+            font-size: 13px;
+            color: #888;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-weight: 400;
+        }
+
+        .nav-links a:hover {
+            color: #a78bfa;
+        }
+
+        /* Tooltip */
+        .tooltip {
+            position: absolute;
+            padding: 16px 20px;
+            background: rgba(15, 16, 22, 0.95);
+            border: 1px solid rgba(124, 58, 237, 0.3);
+            border-radius: 12px;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.2s ease, transform 0.2s ease;
+            backdrop-filter: blur(20px);
+            max-width: 320px;
+            z-index: 1000;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5), 
+                        0 0 40px rgba(124, 58, 237, 0.1);
+        }
+
+        .tooltip.visible {
+            opacity: 1;
+        }
+
+        .tooltip h3 {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 14px;
+            font-weight: 500;
+            color: #a78bfa;
+            margin-bottom: 8px;
+        }
+
+        .tooltip p {
+            font-size: 12px;
+            color: #9ca3af;
+            line-height: 1.5;
+            margin-bottom: 12px;
+        }
+
+        .tooltip .meta {
+            display: flex;
+            gap: 16px;
+            font-size: 11px;
+            color: #6b7280;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .tooltip .meta span {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        /* Legend */
+        .legend {
+            position: fixed;
+            bottom: 40px;
+            left: 40px;
+            z-index: 100;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 11px;
+            color: #6b7280;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .legend-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            box-shadow: 0 0 10px currentColor;
+        }
+
+        /* Stats panel */
+        .stats {
+            position: fixed;
+            bottom: 40px;
+            right: 40px;
+            z-index: 100;
+            text-align: right;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .stats .value {
+            font-size: 48px;
+            font-weight: 300;
+            color: #7c3aed;
+            line-height: 1;
+        }
+
+        .stats .label {
+            font-size: 11px;
+            color: #6b7280;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-top: 8px;
+        }
+
+        /* Instructions */
+        .instructions {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            z-index: 50;
+            pointer-events: none;
+            opacity: 0.6;
+            transition: opacity 0.5s ease;
+        }
+
+        .instructions.hidden {
+            opacity: 0;
+        }
+
+        .instructions p {
+            font-size: 13px;
+            color: #4b5563;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        /* Node styles via D3 */
+        .node-circle {
+            cursor: pointer;
+            transition: filter 0.3s ease;
+        }
+
+        .node-circle:hover {
+            filter: brightness(1.3);
+        }
+
+        .link {
+            stroke: rgba(124, 58, 237, 0.15);
+            stroke-width: 1;
+        }
+
+        .node-label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 10px;
+            fill: #9ca3af;
+            pointer-events: none;
+            text-anchor: middle;
+        }
+
+        /* Glow effect */
+        .glow {
+            filter: url(#glow);
+        }
+    </style>
+</head>
+<body>
+    <div id="canvas-container"></div>
+    
+    <header class="header">
+        <div class="logo">HAILEY<span>.GRAPH</span></div>
+        <nav class="nav-links">
+            <a href="https://github.com/heilcheng">GitHub</a>
+            <a href="https://heilcheng.github.io">Portfolio</a>
+        </nav>
+    </header>
+
+    <div class="instructions" id="instructions">
+        <p>drag nodes · scroll to zoom · click to visit</p>
+    </div>
+
+    <div class="tooltip" id="tooltip"></div>
+
+    <div class="legend" id="legend"></div>
+
+    <div class="stats">
+        <div class="value" id="repo-count">7</div>
+        <div class="label">Repositories</div>
+    </div>
+
+    <svg id="graph"></svg>
+
+    <script>
+        // Repository data - curated list
+        const repos = [
+            {
+                id: "DeepMind",
+                name: "DeepMind",
+                description: "Google Summer of Code project with DeepMind",
+                language: "Python",
+                stars: 245,
+                url: "https://github.com/heilcheng/DeepMind",
+                category: "AI/ML"
+            },
+            {
+                id: "medexplain-evals",
+                name: "medexplain-evals",
+                description: "Medical explanation evaluation framework",
+                language: "Python",
+                stars: 89,
+                url: "https://github.com/heilcheng/medexplain-evals",
+                category: "Healthcare"
+            },
+            {
+                id: "truthordare",
+                name: "truthordare",
+                description: "Interactive truth or dare game",
+                language: "JavaScript",
+                stars: 42,
+                url: "https://github.com/heilcheng/truthordare",
+                category: "Web"
+            },
+            {
+                id: "perspective",
+                name: "perspective",
+                description: "Perspective analysis and visualization tools",
+                language: "TypeScript",
+                stars: 67,
+                url: "https://github.com/heilcheng/perspective",
+                category: "Analytics"
+            },
+            {
+                id: "openevals",
+                name: "openevals",
+                description: "Open-source evaluation benchmarks",
+                language: "Python",
+                stars: 156,
+                url: "https://github.com/heilcheng/openevals",
+                category: "AI/ML"
+            },
+            {
+                id: "heilcheng.github.io",
+                name: "heilcheng.github.io",
+                description: "Personal portfolio and blog",
+                language: "HTML",
+                stars: 12,
+                url: "https://github.com/heilcheng/heilcheng.github.io",
+                category: "Web"
+            },
+            {
+                id: "deepchem-drug-formulation",
+                name: "deepchem-drug-formulation",
+                description: "Deep learning for drug formulation prediction",
+                language: "Python",
+                stars: 198,
+                url: "https://github.com/heilcheng/deepchem-drug-formulation",
+                category: "Healthcare"
+            }
+        ];
+
+        // Color schemes
+        const languageColors = {
+            "Python": "#8b5cf6",
+            "JavaScript": "#fbbf24",
+            "TypeScript": "#3b82f6",
+            "HTML": "#f97316",
+            "Other": "#6b7280"
+        };
+
+        const categoryColors = {
+            "AI/ML": "#8b5cf6",
+            "Healthcare": "#10b981",
+            "Web": "#f59e0b",
+            "Analytics": "#3b82f6"
+        };
+
+        // Create connections based on shared categories
+        const links = [];
+        for (let i = 0; i < repos.length; i++) {
+            for (let j = i + 1; j < repos.length; j++) {
+                if (repos[i].category === repos[j].category || 
+                    repos[i].language === repos[j].language) {
+                    links.push({
+                        source: repos[i].id,
+                        target: repos[j].id,
+                        strength: repos[i].category === repos[j].category ? 0.8 : 0.4
+                    });
+                }
+            }
+        }
+
+        // Create floating particles
+        const container = document.getElementById('canvas-container');
+        for (let i = 0; i < 50; i++) {
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+            particle.style.width = Math.random() * 3 + 1 + 'px';
+            particle.style.height = particle.style.width;
+            particle.style.left = Math.random() * 100 + '%';
+            particle.style.top = Math.random() * 100 + '%';
+            particle.style.background = `rgba(124, 58, 237, ${Math.random() * 0.3 + 0.1})`;
+            particle.style.animationDelay = Math.random() * 20 + 's';
+            particle.style.animationDuration = (Math.random() * 20 + 15) + 's';
+            container.appendChild(particle);
+        }
+
+        // D3 Graph
+        const width = window.innerWidth;
+        const height = window.innerHeight;
+
+        const svg = d3.select("#graph")
+            .attr("width", width)
+            .attr("height", height);
+
+        // Defs for filters
+        const defs = svg.append("defs");
+
+        // Glow filter
+        const filter = defs.append("filter")
+            .attr("id", "glow")
+            .attr("x", "-100%")
+            .attr("y", "-100%")
+            .attr("width", "300%")
+            .attr("height", "300%");
+
+        filter.append("feGaussianBlur")
+            .attr("stdDeviation", "4")
+            .attr("result", "coloredBlur");
+
+        const feMerge = filter.append("feMerge");
+        feMerge.append("feMergeNode").attr("in", "coloredBlur");
+        feMerge.append("feMergeNode").attr("in", "SourceGraphic");
+
+        // Radial gradient for nodes
+        repos.forEach(repo => {
+            const gradient = defs.append("radialGradient")
+                .attr("id", `gradient-${repo.id.replace(/\./g, '-')}`)
+                .attr("cx", "30%")
+                .attr("cy", "30%");
+
+            const color = languageColors[repo.language] || languageColors["Other"];
+            
+            gradient.append("stop")
+                .attr("offset", "0%")
+                .attr("stop-color", d3.color(color).brighter(1));
+            
+            gradient.append("stop")
+                .attr("offset", "100%")
+                .attr("stop-color", color);
+        });
+
+        // Zoom behavior
+        const zoom = d3.zoom()
+            .scaleExtent([0.3, 3])
+            .on("zoom", (event) => {
+                g.attr("transform", event.transform);
+                document.getElementById('instructions').classList.add('hidden');
+            });
+
+        svg.call(zoom);
+
+        const g = svg.append("g");
+
+        // Force simulation
+        const simulation = d3.forceSimulation(repos)
+            .force("link", d3.forceLink(links)
+                .id(d => d.id)
+                .distance(150)
+                .strength(d => d.strength * 0.3))
+            .force("charge", d3.forceManyBody()
+                .strength(-400))
+            .force("center", d3.forceCenter(width / 2, height / 2))
+            .force("collision", d3.forceCollide().radius(60));
+
+        // Links
+        const link = g.append("g")
+            .selectAll("line")
+            .data(links)
+            .join("line")
+            .attr("class", "link")
+            .attr("stroke-opacity", d => d.strength * 0.5);
+
+        // Nodes group
+        const node = g.append("g")
+            .selectAll("g")
+            .data(repos)
+            .join("g")
+            .attr("class", "node")
+            .call(d3.drag()
+                .on("start", dragstarted)
+                .on("drag", dragged)
+                .on("end", dragended));
+
+        // Outer glow circle
+        node.append("circle")
+            .attr("r", d => Math.sqrt(d.stars) * 1.5 + 25)
+            .attr("fill", d => languageColors[d.language] || languageColors["Other"])
+            .attr("opacity", 0.1)
+            .attr("class", "glow");
+
+        // Main node circle
+        node.append("circle")
+            .attr("class", "node-circle")
+            .attr("r", d => Math.sqrt(d.stars) * 1.2 + 15)
+            .attr("fill", d => `url(#gradient-${d.id.replace(/\./g, '-')})`)
+            .attr("stroke", d => languageColors[d.language] || languageColors["Other"])
+            .attr("stroke-width", 2)
+            .attr("stroke-opacity", 0.5)
+            .attr("filter", "url(#glow)")
+            .on("click", (event, d) => {
+                window.open(d.url, '_blank');
+            })
+            .on("mouseover", showTooltip)
+            .on("mouseout", hideTooltip);
+
+        // Node labels
+        node.append("text")
+            .attr("class", "node-label")
+            .attr("dy", d => Math.sqrt(d.stars) * 1.2 + 30)
+            .text(d => d.name.length > 18 ? d.name.slice(0, 15) + '...' : d.name);
+
+        // Tooltip functions
+        const tooltip = document.getElementById('tooltip');
+
+        function showTooltip(event, d) {
+            tooltip.innerHTML = `
+                <h3>${d.name}</h3>
+                <p>${d.description}</p>
+                <div class="meta">
+                    <span>⭐ ${d.stars} stars</span>
+                    <span>💻 ${d.language}</span>
+                    <span>📂 ${d.category}</span>
+                </div>
+            `;
+            tooltip.style.left = event.pageX + 20 + 'px';
+            tooltip.style.top = event.pageY - 20 + 'px';
+            tooltip.classList.add('visible');
+        }
+
+        function hideTooltip() {
+            tooltip.classList.remove('visible');
+        }
+
+        // Update positions
+        simulation.on("tick", () => {
+            link
+                .attr("x1", d => d.source.x)
+                .attr("y1", d => d.source.y)
+                .attr("x2", d => d.target.x)
+                .attr("y2", d => d.target.y);
+
+            node.attr("transform", d => `translate(${d.x},${d.y})`);
+        });
+
+        // Drag functions
+        function dragstarted(event, d) {
+            if (!event.active) simulation.alphaTarget(0.3).restart();
+            d.fx = d.x;
+            d.fy = d.y;
+            document.getElementById('instructions').classList.add('hidden');
+        }
+
+        function dragged(event, d) {
+            d.fx = event.x;
+            d.fy = event.y;
+        }
+
+        function dragended(event, d) {
+            if (!event.active) simulation.alphaTarget(0);
+            d.fx = null;
+            d.fy = null;
+        }
+
+        // Create legend
+        const legend = document.getElementById('legend');
+        Object.entries(languageColors).forEach(([lang, color]) => {
+            if (lang !== 'Other' && repos.some(r => r.language === lang)) {
+                const item = document.createElement('div');
+                item.className = 'legend-item';
+                item.innerHTML = `
+                    <div class="legend-dot" style="background: ${color}; color: ${color}"></div>
+                    <span>${lang}</span>
+                `;
+                legend.appendChild(item);
+            }
+        });
+
+        // Handle resize
+        window.addEventListener('resize', () => {
+            const newWidth = window.innerWidth;
+            const newHeight = window.innerHeight;
+            svg.attr("width", newWidth).attr("height", newHeight);
+            simulation.force("center", d3.forceCenter(newWidth / 2, newHeight / 2));
+            simulation.alpha(0.3).restart();
+        });
+
+        // Hide instructions after interaction
+        setTimeout(() => {
+            document.getElementById('instructions').classList.add('hidden');
+        }, 5000);
+    </script>
+</body>
+</html>
+

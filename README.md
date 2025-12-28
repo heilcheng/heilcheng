@@ -8,6 +8,16 @@ I'm currently applying to transfer to Columbia for Fall '26, and I hope to reloc
 
 ---
 
+<div align="center">
+  <a href="https://heilcheng.github.io/heilcheng-2/graph.html">
+    <img src="assets/knowledge-graph.svg" alt="Knowledge Graph" width="100%">
+  </a>
+  <br>
+  <sub>✨ <a href="https://heilcheng.github.io/heilcheng-2/graph.html">Explore the interactive graph</a></sub>
+</div>
+
+---
+
 <!-- STATS -->⭐ 658 stars · 🔀 51 PRs · 💻 40 contributions<!-- /STATS --><br>
 <!-- RANK -->🏆 #36 <a href="https://committers.top/hong_kong.html">most active GitHub user in Hong Kong</a><!-- /RANK --><br>
 <!-- WEATHER -->☁️ 17°C · 💧 75% in Hong Kong<!-- /WEATHER --><br>
