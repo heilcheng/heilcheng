@@ -170,7 +170,7 @@ jobs:
           sed -i "s/<!-- STATS -->.*<!-- \/STATS -->/<!-- STATS -->⭐ ${STARS} stars · 🔀 ${PRS} PRs · 💻 ${CONTRIBS} contributions<!-- \/STATS -->/" README.md
           sed -i "s/<!-- RANK -->.*<!-- \/RANK -->/<!-- RANK -->most active github [#${RANK} in Hong Kong](https:\/\/committers.top\/hong_kong.html)<!-- \/RANK -->/" README.md
           sed -i "s/<!-- DOG -->.*<!-- \/DOG -->/<!-- DOG -->🐕 ${DOG_FACT_ESCAPED}<!-- \/DOG -->/" README.md
-          sed -i "s/<!-- WEATHER -->.*<!-- \/WEATHER -->/<!-- WEATHER -->${WEATHER_EMOJI} ${TEMP}°C · 💧 ${HUMIDITY}% in Hong Kong${RAIN_INFO}<!-- \/WEATHER -->/" README.md
+          sed -i "s/<!-- WEATHER -->.*<!-- \/WEATHER -->/<!-- WEATHER -->${WEATHER_EMOJI} ${TEMP}°C · 💧 ${HUMIDITY}% in Hong Kong<!-- \/WEATHER -->/" README.md
 
       - name: Commit changes
         run: |
