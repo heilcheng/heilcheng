@@ -7,7 +7,7 @@
     <script src="https://d3js.org/d3.v7.min.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -16,103 +16,73 @@
         }
 
         body {
-            font-family: 'Outfit', sans-serif;
-            background: #0a0b0f;
-            color: #e0e0e0;
-            overflow: hidden;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #fafbfc;
+            color: #374151;
             min-height: 100vh;
-        }
-
-        #canvas-container {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 0;
+            overflow: hidden;
         }
 
         #graph {
-            position: relative;
-            z-index: 1;
             width: 100%;
             height: 100vh;
+            background: linear-gradient(135deg, #f8f9fc 0%, #f0f2f8 100%);
         }
 
-        /* Floating particles background */
-        .particle {
-            position: absolute;
-            border-radius: 50%;
-            pointer-events: none;
-            animation: float 20s infinite ease-in-out;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0) translateX(0); opacity: 0.3; }
-            25% { transform: translateY(-30px) translateX(15px); opacity: 0.6; }
-            50% { transform: translateY(-15px) translateX(-10px); opacity: 0.4; }
-            75% { transform: translateY(-40px) translateX(20px); opacity: 0.5; }
-        }
-
-        /* Header */
-        .header {
+        /* Sidebar toggle */
+        .sidebar-toggle {
             position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            padding: 24px 40px;
-            z-index: 100;
+            top: 20px;
+            left: 20px;
+            width: 36px;
+            height: 36px;
+            background: white;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
             display: flex;
-            justify-content: space-between;
             align-items: center;
-            background: linear-gradient(to bottom, rgba(10, 11, 15, 0.95) 0%, transparent 100%);
+            justify-content: center;
+            cursor: pointer;
+            z-index: 100;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+            transition: all 0.2s ease;
         }
 
-        .logo {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 14px;
-            font-weight: 500;
-            color: #7c3aed;
-            letter-spacing: 2px;
-            text-transform: uppercase;
+        .sidebar-toggle:hover {
+            background: #f9fafb;
+            border-color: #d1d5db;
         }
 
-        .logo span {
-            color: #a78bfa;
+        .sidebar-toggle svg {
+            width: 16px;
+            height: 16px;
+            color: #6b7280;
         }
 
-        .nav-links {
-            display: flex;
-            gap: 32px;
-        }
-
-        .nav-links a {
+        /* Instructions */
+        .instructions {
+            position: fixed;
+            top: 20px;
+            right: 24px;
             font-size: 13px;
-            color: #888;
-            text-decoration: none;
-            transition: color 0.3s ease;
+            color: #9ca3af;
+            z-index: 100;
             font-weight: 400;
-        }
-
-        .nav-links a:hover {
-            color: #a78bfa;
         }
 
         /* Tooltip */
         .tooltip {
             position: absolute;
-            padding: 16px 20px;
-            background: rgba(15, 16, 22, 0.95);
-            border: 1px solid rgba(124, 58, 237, 0.3);
-            border-radius: 12px;
+            padding: 12px 16px;
+            background: white;
+            border: 1px solid #e5e7eb;
+            border-radius: 10px;
             pointer-events: none;
             opacity: 0;
-            transition: opacity 0.2s ease, transform 0.2s ease;
-            backdrop-filter: blur(20px);
-            max-width: 320px;
+            transition: opacity 0.15s ease;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            max-width: 280px;
             z-index: 1000;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5), 
-                        0 0 40px rgba(124, 58, 237, 0.1);
         }
 
         .tooltip.visible {
@@ -120,26 +90,24 @@
         }
 
         .tooltip h3 {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 14px;
-            font-weight: 500;
-            color: #a78bfa;
-            margin-bottom: 8px;
+            font-size: 13px;
+            font-weight: 600;
+            color: #1f2937;
+            margin-bottom: 4px;
         }
 
         .tooltip p {
             font-size: 12px;
-            color: #9ca3af;
-            line-height: 1.5;
-            margin-bottom: 12px;
+            color: #6b7280;
+            line-height: 1.4;
+            margin-bottom: 8px;
         }
 
         .tooltip .meta {
             display: flex;
-            gap: 16px;
+            gap: 12px;
             font-size: 11px;
-            color: #6b7280;
-            font-family: 'JetBrains Mono', monospace;
+            color: #9ca3af;
         }
 
         .tooltip .meta span {
@@ -148,251 +116,144 @@
             gap: 4px;
         }
 
-        /* Legend */
-        .legend {
-            position: fixed;
-            bottom: 40px;
-            left: 40px;
-            z-index: 100;
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-
-        .legend-item {
-            display: flex;
-            align-items: center;
-            gap: 10px;
+        /* Topic labels */
+        .topic-label {
             font-size: 11px;
-            color: #6b7280;
-            font-family: 'JetBrains Mono', monospace;
-        }
-
-        .legend-dot {
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            box-shadow: 0 0 10px currentColor;
-        }
-
-        /* Stats panel */
-        .stats {
-            position: fixed;
-            bottom: 40px;
-            right: 40px;
-            z-index: 100;
-            text-align: right;
-            font-family: 'JetBrains Mono', monospace;
-        }
-
-        .stats .value {
-            font-size: 48px;
-            font-weight: 300;
-            color: #7c3aed;
-            line-height: 1;
-        }
-
-        .stats .label {
-            font-size: 11px;
-            color: #6b7280;
+            font-weight: 500;
+            fill: #9ca3af;
             text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-top: 8px;
+            letter-spacing: 0.5px;
         }
 
-        /* Instructions */
-        .instructions {
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            text-align: center;
-            z-index: 50;
-            pointer-events: none;
-            opacity: 0.6;
-            transition: opacity 0.5s ease;
-        }
-
-        .instructions.hidden {
-            opacity: 0;
-        }
-
-        .instructions p {
-            font-size: 13px;
-            color: #4b5563;
-            font-family: 'JetBrains Mono', monospace;
-        }
-
-        /* Node styles via D3 */
+        /* Node styles */
         .node-circle {
             cursor: pointer;
-            transition: filter 0.3s ease;
+            transition: all 0.2s ease;
         }
 
         .node-circle:hover {
-            filter: brightness(1.3);
-        }
-
-        .link {
-            stroke: rgba(124, 58, 237, 0.15);
-            stroke-width: 1;
+            filter: brightness(0.9);
         }
 
         .node-label {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 10px;
-            fill: #9ca3af;
+            font-family: 'Inter', sans-serif;
+            font-size: 11px;
+            font-weight: 500;
+            fill: #4b5563;
             pointer-events: none;
-            text-anchor: middle;
         }
 
-        /* Glow effect */
-        .glow {
-            filter: url(#glow);
+        .link {
+            stroke: #a78bfa;
+            stroke-opacity: 0.4;
         }
     </style>
 </head>
 <body>
-    <div id="canvas-container"></div>
-    
-    <header class="header">
-        <div class="logo">HAILEY<span>.GRAPH</span></div>
-        <nav class="nav-links">
-            <a href="https://github.com/heilcheng">GitHub</a>
-            <a href="https://heilcheng.github.io">Portfolio</a>
-        </nav>
-    </header>
+    <button class="sidebar-toggle">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M9 18l6-6-6-6"/>
+        </svg>
+    </button>
 
-    <div class="instructions" id="instructions">
-        <p>drag nodes · scroll to zoom · click to visit</p>
-    </div>
+    <div class="instructions">drag to move · scroll to zoom</div>
 
     <div class="tooltip" id="tooltip"></div>
-
-    <div class="legend" id="legend"></div>
-
-    <div class="stats">
-        <div class="value" id="repo-count">7</div>
-        <div class="label">Repositories</div>
-    </div>
 
     <svg id="graph"></svg>
 
     <script>
-        // Repository data - curated list
+        // Repository data organized by topics
         const repos = [
+            // AI/LLMs cluster
             {
                 id: "DeepMind",
                 name: "DeepMind",
                 description: "Google Summer of Code project with DeepMind",
-                language: "Python",
                 stars: 245,
                 url: "https://github.com/heilcheng/DeepMind",
-                category: "AI/ML"
+                topic: "ai",
+                cluster: { x: 0.35, y: 0.35 }
+            },
+            {
+                id: "openevals",
+                name: "openevals",
+                description: "Open-source evaluation benchmarks for LLMs",
+                stars: 156,
+                url: "https://github.com/heilcheng/openevals",
+                topic: "ai",
+                cluster: { x: 0.45, y: 0.45 }
             },
             {
                 id: "medexplain-evals",
                 name: "medexplain-evals",
                 description: "Medical explanation evaluation framework",
-                language: "Python",
                 stars: 89,
                 url: "https://github.com/heilcheng/medexplain-evals",
-                category: "Healthcare"
+                topic: "biomedicine",
+                cluster: { x: 0.55, y: 0.55 }
             },
+            // Biomedicine cluster
+            {
+                id: "deepchem-drug-formulation",
+                name: "deepchem-drug",
+                description: "Deep learning for drug formulation prediction",
+                stars: 198,
+                url: "https://github.com/heilcheng/deepchem-drug-formulation",
+                topic: "biomedicine",
+                cluster: { x: 0.65, y: 0.65 }
+            },
+            // Web Dev cluster
             {
                 id: "truthordare",
                 name: "truthordare",
                 description: "Interactive truth or dare game",
-                language: "JavaScript",
                 stars: 42,
                 url: "https://github.com/heilcheng/truthordare",
-                category: "Web"
+                topic: "webdev",
+                cluster: { x: 0.25, y: 0.6 }
             },
             {
                 id: "perspective",
                 name: "perspective",
                 description: "Perspective analysis and visualization tools",
-                language: "TypeScript",
                 stars: 67,
                 url: "https://github.com/heilcheng/perspective",
-                category: "Analytics"
-            },
-            {
-                id: "openevals",
-                name: "openevals",
-                description: "Open-source evaluation benchmarks",
-                language: "Python",
-                stars: 156,
-                url: "https://github.com/heilcheng/openevals",
-                category: "AI/ML"
+                topic: "webdev",
+                cluster: { x: 0.55, y: 0.25 }
             },
             {
                 id: "heilcheng.github.io",
-                name: "heilcheng.github.io",
+                name: "portfolio",
                 description: "Personal portfolio and blog",
-                language: "HTML",
                 stars: 12,
                 url: "https://github.com/heilcheng/heilcheng.github.io",
-                category: "Web"
-            },
-            {
-                id: "deepchem-drug-formulation",
-                name: "deepchem-drug-formulation",
-                description: "Deep learning for drug formulation prediction",
-                language: "Python",
-                stars: 198,
-                url: "https://github.com/heilcheng/deepchem-drug-formulation",
-                category: "Healthcare"
+                topic: "webdev",
+                cluster: { x: 0.7, y: 0.4 }
             }
         ];
 
-        // Color schemes
-        const languageColors = {
-            "Python": "#8b5cf6",
-            "JavaScript": "#fbbf24",
-            "TypeScript": "#3b82f6",
-            "HTML": "#f97316",
-            "Other": "#6b7280"
-        };
+        // Create links based on topics and related content
+        const links = [
+            // AI connections
+            { source: "DeepMind", target: "openevals", strength: 1 },
+            { source: "openevals", target: "medexplain-evals", strength: 1 },
+            { source: "DeepMind", target: "medexplain-evals", strength: 0.6 },
+            
+            // Biomedicine connections
+            { source: "medexplain-evals", target: "deepchem-drug-formulation", strength: 1 },
+            { source: "DeepMind", target: "deepchem-drug-formulation", strength: 0.5 },
+            
+            // Web dev connections
+            { source: "truthordare", target: "heilcheng.github.io", strength: 0.8 },
+            { source: "perspective", target: "heilcheng.github.io", strength: 0.8 },
+            { source: "truthordare", target: "perspective", strength: 0.5 },
+            
+            // Cross-topic connections
+            { source: "openevals", target: "perspective", strength: 0.4 },
+            { source: "deepchem-drug-formulation", target: "openevals", strength: 0.5 }
+        ];
 
-        const categoryColors = {
-            "AI/ML": "#8b5cf6",
-            "Healthcare": "#10b981",
-            "Web": "#f59e0b",
-            "Analytics": "#3b82f6"
-        };
-
-        // Create connections based on shared categories
-        const links = [];
-        for (let i = 0; i < repos.length; i++) {
-            for (let j = i + 1; j < repos.length; j++) {
-                if (repos[i].category === repos[j].category || 
-                    repos[i].language === repos[j].language) {
-                    links.push({
-                        source: repos[i].id,
-                        target: repos[j].id,
-                        strength: repos[i].category === repos[j].category ? 0.8 : 0.4
-                    });
-                }
-            }
-        }
-
-        // Create floating particles
-        const container = document.getElementById('canvas-container');
-        for (let i = 0; i < 50; i++) {
-            const particle = document.createElement('div');
-            particle.className = 'particle';
-            particle.style.width = Math.random() * 3 + 1 + 'px';
-            particle.style.height = particle.style.width;
-            particle.style.left = Math.random() * 100 + '%';
-            particle.style.top = Math.random() * 100 + '%';
-            particle.style.background = `rgba(124, 58, 237, ${Math.random() * 0.3 + 0.1})`;
-            particle.style.animationDelay = Math.random() * 20 + 's';
-            particle.style.animationDuration = (Math.random() * 20 + 15) + 's';
-            container.appendChild(particle);
-        }
-
-        // D3 Graph
         const width = window.innerWidth;
         const height = window.innerHeight;
 
@@ -400,75 +261,44 @@
             .attr("width", width)
             .attr("height", height);
 
-        // Defs for filters
-        const defs = svg.append("defs");
-
-        // Glow filter
-        const filter = defs.append("filter")
-            .attr("id", "glow")
-            .attr("x", "-100%")
-            .attr("y", "-100%")
-            .attr("width", "300%")
-            .attr("height", "300%");
-
-        filter.append("feGaussianBlur")
-            .attr("stdDeviation", "4")
-            .attr("result", "coloredBlur");
-
-        const feMerge = filter.append("feMerge");
-        feMerge.append("feMergeNode").attr("in", "coloredBlur");
-        feMerge.append("feMergeNode").attr("in", "SourceGraphic");
-
-        // Radial gradient for nodes
-        repos.forEach(repo => {
-            const gradient = defs.append("radialGradient")
-                .attr("id", `gradient-${repo.id.replace(/\./g, '-')}`)
-                .attr("cx", "30%")
-                .attr("cy", "30%");
-
-            const color = languageColors[repo.language] || languageColors["Other"];
-            
-            gradient.append("stop")
-                .attr("offset", "0%")
-                .attr("stop-color", d3.color(color).brighter(1));
-            
-            gradient.append("stop")
-                .attr("offset", "100%")
-                .attr("stop-color", color);
-        });
-
         // Zoom behavior
         const zoom = d3.zoom()
             .scaleExtent([0.3, 3])
             .on("zoom", (event) => {
                 g.attr("transform", event.transform);
-                document.getElementById('instructions').classList.add('hidden');
             });
 
         svg.call(zoom);
 
         const g = svg.append("g");
 
-        // Force simulation
+        // Initialize positions based on cluster hints
+        repos.forEach(repo => {
+            repo.x = repo.cluster.x * width;
+            repo.y = repo.cluster.y * height;
+        });
+
+        // Force simulation with topic clustering
         const simulation = d3.forceSimulation(repos)
             .force("link", d3.forceLink(links)
                 .id(d => d.id)
-                .distance(150)
+                .distance(100)
                 .strength(d => d.strength * 0.3))
-            .force("charge", d3.forceManyBody()
-                .strength(-400))
+            .force("charge", d3.forceManyBody().strength(-300))
             .force("center", d3.forceCenter(width / 2, height / 2))
-            .force("collision", d3.forceCollide().radius(60));
+            .force("collision", d3.forceCollide().radius(50))
+            .force("x", d3.forceX(d => d.cluster.x * width).strength(0.1))
+            .force("y", d3.forceY(d => d.cluster.y * height).strength(0.1));
 
-        // Links
+        // Draw links
         const link = g.append("g")
             .selectAll("line")
             .data(links)
             .join("line")
             .attr("class", "link")
-            .attr("stroke-opacity", d => d.strength * 0.5);
+            .attr("stroke-width", d => d.strength * 1.5 + 0.5);
 
-        // Nodes group
+        // Node groups
         const node = g.append("g")
             .selectAll("g")
             .data(repos)
@@ -479,22 +309,20 @@
                 .on("drag", dragged)
                 .on("end", dragended));
 
-        // Outer glow circle
-        node.append("circle")
-            .attr("r", d => Math.sqrt(d.stars) * 1.5 + 25)
-            .attr("fill", d => languageColors[d.language] || languageColors["Other"])
-            .attr("opacity", 0.1)
-            .attr("class", "glow");
-
-        // Main node circle
+        // Node circles - all purple with varying opacity/size based on stars
         node.append("circle")
             .attr("class", "node-circle")
-            .attr("r", d => Math.sqrt(d.stars) * 1.2 + 15)
-            .attr("fill", d => `url(#gradient-${d.id.replace(/\./g, '-')})`)
-            .attr("stroke", d => languageColors[d.language] || languageColors["Other"])
-            .attr("stroke-width", 2)
-            .attr("stroke-opacity", 0.5)
-            .attr("filter", "url(#glow)")
+            .attr("r", d => Math.sqrt(d.stars) * 0.8 + 10)
+            .attr("fill", d => {
+                // Varying purple shades based on topic
+                const colors = {
+                    ai: "#8b5cf6",
+                    biomedicine: "#a78bfa", 
+                    webdev: "#7c3aed"
+                };
+                return colors[d.topic] || "#8b5cf6";
+            })
+            .attr("opacity", 0.85)
             .on("click", (event, d) => {
                 window.open(d.url, '_blank');
             })
@@ -504,24 +332,29 @@
         // Node labels
         node.append("text")
             .attr("class", "node-label")
-            .attr("dy", d => Math.sqrt(d.stars) * 1.2 + 30)
-            .text(d => d.name.length > 18 ? d.name.slice(0, 15) + '...' : d.name);
+            .attr("dy", d => Math.sqrt(d.stars) * 0.8 + 22)
+            .attr("text-anchor", "middle")
+            .text(d => d.name);
 
         // Tooltip functions
         const tooltip = document.getElementById('tooltip');
 
         function showTooltip(event, d) {
+            const topicLabels = {
+                ai: "AI / LLMs",
+                biomedicine: "Biomedicine",
+                webdev: "Web Dev"
+            };
             tooltip.innerHTML = `
-                <h3>${d.name}</h3>
+                <h3>${d.id}</h3>
                 <p>${d.description}</p>
                 <div class="meta">
-                    <span>⭐ ${d.stars} stars</span>
-                    <span>💻 ${d.language}</span>
-                    <span>📂 ${d.category}</span>
+                    <span>⭐ ${d.stars}</span>
+                    <span>📁 ${topicLabels[d.topic]}</span>
                 </div>
             `;
-            tooltip.style.left = event.pageX + 20 + 'px';
-            tooltip.style.top = event.pageY - 20 + 'px';
+            tooltip.style.left = event.pageX + 15 + 'px';
+            tooltip.style.top = event.pageY - 10 + 'px';
             tooltip.classList.add('visible');
         }
 
@@ -545,7 +378,6 @@
             if (!event.active) simulation.alphaTarget(0.3).restart();
             d.fx = d.x;
             d.fy = d.y;
-            document.getElementById('instructions').classList.add('hidden');
         }
 
         function dragged(event, d) {
@@ -559,20 +391,6 @@
             d.fy = null;
         }
 
-        // Create legend
-        const legend = document.getElementById('legend');
-        Object.entries(languageColors).forEach(([lang, color]) => {
-            if (lang !== 'Other' && repos.some(r => r.language === lang)) {
-                const item = document.createElement('div');
-                item.className = 'legend-item';
-                item.innerHTML = `
-                    <div class="legend-dot" style="background: ${color}; color: ${color}"></div>
-                    <span>${lang}</span>
-                `;
-                legend.appendChild(item);
-            }
-        });
-
         // Handle resize
         window.addEventListener('resize', () => {
             const newWidth = window.innerWidth;
@@ -581,12 +399,6 @@
             simulation.force("center", d3.forceCenter(newWidth / 2, newHeight / 2));
             simulation.alpha(0.3).restart();
         });
-
-        // Hide instructions after interaction
-        setTimeout(() => {
-            document.getElementById('instructions').classList.add('hidden');
-        }, 5000);
     </script>
 </body>
 </html>
-
