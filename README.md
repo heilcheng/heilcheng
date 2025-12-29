@@ -10,8 +10,8 @@ I'm currently applying to transfer to Columbia for Fall '26, and I hope to reloc
 
 <!-- STATS -->⭐ 649 stars · 🔀 51 PRs · 💻 40 contributions<!-- /STATS --><br>
 <!-- RANK -->🏆 #36 <a href="https://committers.top/hong_kong.html">most active GitHub user in Hong Kong</a><!-- /RANK --><br>
-<!-- WEATHER -->🌙 20°C · 💧 72% in Hong Kong<!-- /WEATHER --><br>
-<!-- DOG -->🐕 Dogs can smell your feelings<!-- /DOG -->
+<!-- WEATHER -->🌙 19°C · 💧 73% in Hong Kong<!-- /WEATHER --><br>
+<!-- DOG -->🐕 Greyhounds can run up to 45 mph<!-- /DOG -->
 
 ---
 
