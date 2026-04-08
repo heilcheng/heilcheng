@@ -1,4 +1,10 @@
-hi i am hailey, aespa winter simp, prev dev @googledeepmind, @ucberkeley, top 500 @splatoonna. hongkongese.
+hi i am hailey
+
+aespa winter simp, prev dev at google deepmind, prev exchange at uc berkeley
+
+prev pro player in splatoon 2, hongkongese
+
+---
 
 i am building [coglix labs](https://sync.coglixlabs.com), at-home rehab platform inspired by my granny’s stroke
 
@@ -8,9 +14,23 @@ so patients like her can recover faster and regain independence
 
 students with special educational needs (SEN) also use our platform for training
 
-providing trial / access to users in hk, us, uk and africa & collab with NGOs
+providing trial / access to users in hk, us, uk and africa & collab with nonprofits
 
-also plan to transfer to Columbia in the future, and eventually relocate to san francisco to build
+the name coglix comes from love of corgi
+
+---
+
+i love kayaking, rowing, tennis, wii sports, switch games, bio and political philosophy
+
+own a super cute black dog called lyra, adopted and well-behaved
+
+occasionally do open source
+
+planning to transfer to columbia university in the future
+
+and eventually relocate to san francisco to build
+
+---
 
 [hailey cheng](https://www.linkedin.com/in/heilcheng/) (linkedin)
 
