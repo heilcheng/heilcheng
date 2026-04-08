@@ -1,6 +1,6 @@
 hi i am hailey
 
-aespa winter simp, prev dev at google deepmind, prev exchange at uc berkeley
+aespa winter simp, prev dev at google deepmind via gsoc, prev exchange at uc berkeley
 
 prev pro player in splatoon 2, hongkongese
 
