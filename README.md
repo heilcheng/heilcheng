@@ -8,7 +8,7 @@ so patients like her can recover faster and regain independence
 
 students with special educational needs (SEN) also use our platform for training
 
-i provide pro bono access to users in hk and africa, and collab with NGOs
+providing trial / access to users in hk, us, uk and africa & collab with NGOs
 
 also plan to transfer to Columbia in the future, and eventually relocate to san francisco to build
 
