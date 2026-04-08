@@ -1,10 +1,22 @@
-Hi, I'm Hailey.
+hi i am hailey, aespa winter simp, prev dev @googledeepmind, @ucberkeley, top 500 @splatoonna. hongkongese.
 
-I do research in biomedicine and I'm building in stealth.
+i am building [coglix labs](sync.coglixlabs.com), at-home rehab platform inspired by my granny’s stroke
 
-I previously worked with Google DeepMind through Google Summer of Code.
+designed to make physiotherapy engaging, personalized, and accessible
 
-I'm currently applying to transfer to Columbia for Fall '26, and I hope to relocate to the US soon.
+so patients like her can recover faster and regain independence
+
+students with special educational needs (SEN) also use our platform for training
+
+i provide pro bono access to users in hk and africa, and collab with NGOs
+
+also plan to transfer to Columbia in the future, and eventually relocate to san francisco to build
+
+[hailey cheng](https://www.linkedin.com/in/heilcheng/) (linkedin)
+
+haileycheng@proton.me | hailey@coglixlabs.com
+
+threads [@hmtwinter](threads.com/hmtwinter) | twitter/x [@haileyhmt](x.com/haileyhmt)
 
 🎵 [BOL4(볼빨간사춘기) - You(=I)](https://open.spotify.com/track/6NfrH0ANGmgBXyxgV2PeXt)
 
