@@ -1,6 +1,6 @@
 hi i am hailey, aespa winter simp, prev dev @googledeepmind, @ucberkeley, top 500 @splatoonna. hongkongese.
 
-i am building [coglix labs](sync.coglixlabs.com), at-home rehab platform inspired by my granny’s stroke
+i am building [coglix labs](https://sync.coglixlabs.com), at-home rehab platform inspired by my granny’s stroke
 
 designed to make physiotherapy engaging, personalized, and accessible
 
@@ -16,7 +16,7 @@ also plan to transfer to Columbia in the future, and eventually relocate to san 
 
 haileycheng@proton.me | hailey@coglixlabs.com
 
-threads [@hmtwinter](threads.com/hmtwinter) | twitter/x [@haileyhmt](x.com/haileyhmt)
+threads [@hmtwinter](https://threads.com/hmtwinter) | twitter/x [@haileyhmt](https://x.com/haileyhmt)
 
 🎵 [BOL4(볼빨간사춘기) - You(=I)](https://open.spotify.com/track/6NfrH0ANGmgBXyxgV2PeXt)
 
