@@ -22,7 +22,7 @@ the name coglix comes from love of corgi
 
 i love kayaking, rowing, tennis, wii sports, switch games, bio and political philosophy
 
-own a super cute black dog called lyra, adopted and well-behaved
+own a super cute black dog called lyra, adopted and she wont bite ppl
 
 occasionally do open source
 
