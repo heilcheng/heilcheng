@@ -1,4 +1,4 @@
-Due to personal matters, I will be inactive on GitHub through October. If anything urgent comes up, please reach out by email. 
+I'll be away from GitHub from June to October for personal reasons. If anything urgent comes up, please reach out by email. 
 
 [hailey cheng](https://www.linkedin.com/in/heilcheng/) (linkedin)
 
