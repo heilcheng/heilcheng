@@ -1,7 +1,7 @@
 [hailey cheng](https://www.linkedin.com/in/heilcheng/) (linkedin)
 
 
-research work - agentic reliability and post-training alignment.
+research work ongoing (oct 26 to jan 27) - agentic reliability and post-training alignment.
 
 building coglix labs - ai in physiological ai and biomechanics.
 
