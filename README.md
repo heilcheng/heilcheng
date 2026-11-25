@@ -1,13 +1,12 @@
-[hailey cheng](https://www.linkedin.com/in/heilcheng/) (linkedin)
+[profile](https://www.linkedin.com/in/heilcheng/)
 
+research work ongoing - agentic reliability and post-training alignment.
 
-research work ongoing (jun 26 to jan 27) - agentic reliability and post-training alignment.
+building bonet / coglix labs - ai in physiological ai and biomechanics.
 
-building coglix labs - ai in physiological ai and biomechanics.
+pose estimation and movement analytics to assist physical therapy and clinical gait evaluation.
 
-pose estimation and movement analytics to assist physical therapy, injury prevention, and clinical gait evaluation.
-
-haileycheng@proton.me | hailey@coglixlabs.com
+haileycheng@proton.me
 
 threads [@hmtwinter](https://threads.com/hmtwinter) | twitter/x [@haileyhmt](https://x.com/haileyhmt)
 
